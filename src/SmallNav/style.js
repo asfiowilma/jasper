@@ -10,19 +10,24 @@ const Style = styled.div`
     font-size: 1.2rem;
     overflow-x: auto;
     color: white;
-  }
 
-  .small-nav div {
-    display: block;
-    margin: 0 10px;
-    cursor: pointer;
-    white-space: nowrap;
-
-    &:first-child {
-      margin-left: 0;
+    div {
+      display: block;
+      margin: 0 10px;
+      cursor: pointer;
+      white-space: nowrap;
+  
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
     }
-    &:last-child {
-      margin-right: 0;
+
+    div a {
+      color: white; 
+      text-decoration: none;
     }
   }
 
