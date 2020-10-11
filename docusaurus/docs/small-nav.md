@@ -1,42 +1,69 @@
 ---
 id: small-nav
-title: SmallNav
+title: Small Nav
 ---
 
-import { SmallNav } from 'jasper-ui'
+import { SmallNav, Card } from 'jasper-ui'
 
-SmallNav is the smallest form of navigation inside a single page. Note that this component does not deal with navigation across several pages with different route paths. 
+Small Nav is a component of navigation. Small Nav acts like Navbar but it used to show different components, not a different page.
 
 ### Usage
 
-As it is meant to serve as the smallest form of navigation, the SmallNav sections informations under several navItems and displays them one at a time. 
-
-Each navItem object shall have a `title` that will be displayed as navigation, and the `component` that will be rendered when the navItem is clicked. These navItem objects is then wrapped into an array and passed as the `navItems` props. 
+Small Nav contains titles, each of them represents its component that navigated by its title. Therefore, we use Small Nav to determine which component will be displayed.
 
 ### Code
+
 ```jsx
 const navItems = [
   {
-    title: "Bio",
-    component: <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse felis tortor, egestas sit amet lorem eget, blandit egestas elit. Sed ac lacus ut felis rhoncus.</div>
+    title: "navitem1",
+    component: <Card title="Component1" text="Hello world, this is component1." />
   },
   {
-    title: "Contact",
-    component: <div>Suspendisse pellentesque egestas massa non efficitur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras in ullamcorper urna, in auctor nulla.</div>
+    title: "navitem2",
+    component: <Card title="Component2" text="This is component2, just to make sure you actually changed the state." />
   },
   {
-    title: "More Information",
-    component: <div>Proin ac ligula semper, tristique nisi quis, egestas tortor. Vestibulum diam augue, lacinia non vehicula eu, efficitur non risus. Maecenas non turpis id mauris pellentesque.</div>
-  }
+    title: "navitem3",
+    component: <Card title="Component3" text="Ooh, look! Another change" />
+  },
+  {
+    title: "navitem4",
+    component: <Card title="Component4" text="Lorem ipsum dolor sit amet" />
+  },
 ]
 
-<SmallNav navItems={navItems}/>
+<SmallNav navItems={navItems} />
 ```
 
-## Props and Class Names
+### Result
 
-| Prop name   | Type   | Mandatory/Optional | Description                       |
-| ----------- | ------ | ------------------ | --------------------------------- |
-| navItems    | array  | Mandatory          | titles and components to display  |
-| style       | object | Optional           | custom styling for each navItem   |
-| activeStyle | object | Optional           | custom styling for active navItem |
+<SmallNav navItems={[
+{
+title: "navitem1",
+component: <Card title="Component1" text="Hello world, this is component1." />
+},
+{
+title: "navitem2",
+component: <Card title="Component2" text="This is component2, just to make sure you actually changed the state." />
+},
+{
+title: "navitem3",
+component: <Card title="Component3" text="Ooh, look! Another change" />
+},
+{
+title: "navitem4",
+component: <Card title="Component4" text="Lorem ipsum dolor sit amet" />
+},
+]} />
+
+## Props
+
+| Prop name | Type   | Mandatory/Optional | Description                                                          |
+| --------- | ------ | ------------------ | -------------------------------------------------------------------- |
+| navItems  | Object | Mandatory          | An array of objects, that each object consist of title and component |
+
+| Key       | Value Type | Description                                                                 |
+| --------- | ---------- | --------------------------------------------------------------------------- |
+| title     | String     | Text that acts as a navigation                                              |
+| component | Object     | The object that will be displayed when the title representing it is clicked |
